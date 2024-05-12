@@ -24,7 +24,7 @@ class Voter(models.Model):
     def __str__(self):
         return self.voter_id
 
-class PollVoted(models.Model):
+class PollVote(models.Model):
     question_voted_on = models.ForeignKey(Question, on_delete=models.SET_NULL, blank=True, null=True)
     choice_voted = models.ForeignKey(Choice,on_delete=models.SET_NULL, blank=True, null=True)
     time_voted = models.DateTimeField()
