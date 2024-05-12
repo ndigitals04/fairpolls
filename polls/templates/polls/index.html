@@ -10,7 +10,7 @@
 
 <body>
     {% for question in question_list %}
-    <a href="{% url 'polls:index' question.id">{{question.name}}</a>
+    <a href="{% url 'polls:question_detail' question.id%}">{{question.name}}</a>
     {% endfor %}
 </body>
 
