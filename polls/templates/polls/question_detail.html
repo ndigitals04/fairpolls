@@ -9,16 +9,23 @@
 </head>
 
 <body>
-    <h1>{{question.name}}</h1>
-    <ul>
-        {% for choice in question.choice_set.all %}
-        <input type="radio" name="choice" value="{{choice.id}}" id="choice{{forloop.counter}}">
-        <label for="choice{{forloop.counter}}">{{choice.name}}</label>
-        <br>
-        {%endfor%}
+    <form method="POST" action="{% url 'polls:vote' question.id %}">
+        {% csrf_token %}
+        <h1>{{question.name}}</h1>
+        <ul>
+            {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" value="{{choice.id}}" id="choice{{forloop.counter}}">
+            <label for="choice{{forloop.counter}}">{{choice.name}}</label>
+            <br>
+            {%endfor%}
 
-    </ul>
-    <input type="submit" value="Vote">
+        </ul>
+        <input type="submit" value="Vote">
+    </form>
+    {% if error_message %}
+    <p>{{error_message}}</p>
+    {% endif %}
+
 </body>
 
 </html>
