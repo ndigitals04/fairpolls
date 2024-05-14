@@ -25,9 +25,10 @@ class Voter(models.Model):
         return self.voter_id
 
 class PollVote(models.Model):
-    question_voted_on = models.ForeignKey(Question, on_delete=models.SET_NULL, blank=True, null=True)
-    choice_voted = models.ForeignKey(Choice,on_delete=models.SET_NULL, blank=True, null=True)
+    question = models.ForeignKey(Question, on_delete=models.SET_NULL, blank=True, null=True)
+    choice = models.ForeignKey(Choice,on_delete=models.SET_NULL, blank=True, null=True)
+    voter = models.ForeignKey(Voter, on_delete=models.SET_NULL, null=True, blank=True)
     time_voted = models.DateTimeField()
 
     def __str__(self):
-        return self.question_voted_on
+        return self.question.name

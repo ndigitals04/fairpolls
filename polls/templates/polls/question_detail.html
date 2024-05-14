@@ -9,6 +9,16 @@
 </head>
 
 <body>
+    {% if message %}
+    <p>{{message}}</p>
+    <h1>{{question.name}}</h1>
+    <ul>
+        {% for choice in question.choice_set.all %}
+        <li>{{choice.name}}</li>
+        {%endfor%}
+
+    </ul>
+    {% else %}
     <form method="POST" action="{% url 'polls:vote' question.id %}">
         {% csrf_token %}
         <h1>{{question.name}}</h1>
@@ -22,6 +32,7 @@
         </ul>
         <input type="submit" value="Vote">
     </form>
+    {% endif %}
     {% if error_message %}
     <p>{{error_message}}</p>
     {% endif %}
