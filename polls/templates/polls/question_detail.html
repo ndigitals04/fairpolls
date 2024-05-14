@@ -18,6 +18,9 @@
         {%endfor%}
 
     </ul>
+    <a href="{% url 'polls:result' question.id %}">
+        <p>See Results</p>
+    </a>
     {% else %}
     <form method="POST" action="{% url 'polls:vote' question.id %}">
         {% csrf_token %}
