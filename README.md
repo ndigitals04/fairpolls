@@ -19,4 +19,4 @@ scripts\activate`.
 <p> If you followed the above steps properly you should be at the login page of the application.
 <img src="login-page.PNG" width="100%">
 
-If you have any inquiry or issue you can reach me on [X](x.com/ndigitals001) </p>
+If you have any inquiry or issue you can reach me on [X](https://x.com/ndigitals001) </p>
